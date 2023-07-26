@@ -1,12 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up form</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <h1>Hello world!</h1>
+    <div id="left-logo">
+        <div>
+            <img src="./images/odin-lined.png" alt="odin logo">Mountain Lover
+        </div>
+        <p>picture from unsplash.com</p>
+    </div>
+    <div id="container">
+        <div class="top">
+            <h4>This is not a real online service! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                <span class="italic"> occaecat cupidatat </span> 
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.</h4>
+            <h4>
+                Excepteur sint <span class="italic"> occaecat cupidatat </span> non proident.
+            </h4>
+        </div>
+        <div class="formDiv">
+            <h1>Let's do this!</h1>
+            <form action="#" method="POST" id="mainForm">
+                <div>
+                    <label for="firstName">FIRST NAME</label>
+                    <input type="text" name="firstName" id="firstName" required>
+                </div>
+                <div>
+                    <label for="lastName">LAST NAME</label>
+                    <input type="text" name="lastName" id="lastName">
+                </div>
+                <div>
+                    <label for="email">EMAIL</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="phoneNum">PHONE NUMBER</label>
+                    <input type="tel" name="phoneNum" id="phoneNum">
+                </div>
+                <div>
+                    <label for="password1">PASSWORD</label>
+                    <input type="password" name="password1" id="password1" required>
+                    <p class='errorMsg'>* Passwords do not match</p>
+                </div>
+                <div>
+                    <label for="password2">CONFIRM PASSWORD</label>
+                    <input type="password" name="password2" id="password2" required>
+                </div>
+
+            </form>
+        </div>
+        <div class="bottom">
+            <button id="button1" type="submit" form="mainForm">Create Account</button>
+            <p>Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+    </div>
 </body>
+
+<script>
+    document.querySelector('#button1').addEventListener('click', e => {
+        
+        let pwInput1 = document.querySelector('#password1')
+        let pwInput2 = document.querySelector('#password2')
+        console.log(pwInput1.value)
+        if(pwInput1.value !== pwInput2.value) {
+            e.preventDefault()
+            let nodeArray = [...document.querySelectorAll('input[type="password"]')]
+            nodeArray.forEach(x => x.classList.add('error'))
+            document.querySelector('.errorMsg').style.visibility = 'visible'
+        }
+        
+    })
+
+</script>
+
 </html>

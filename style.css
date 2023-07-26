@@ -45,14 +45,14 @@ body {
 
 #left-logo div:first-child {
     background-color: rgba(255, 255, 255, 0.35);
-    margin-top: 50%;
+    margin-top: 20vh;
     padding: 15px;
     font-family: 'Skranji', cursive;
     font-size: 3rem;
 }
 
 #left-logo p {
-    margin-top: 100%;
+    margin-top: 35vh;
     opacity: 0.7;
 }
 
@@ -74,14 +74,16 @@ form {
 }
 
 form>div {
-    /* max-width: 100%; */
+    width: 45%;
     padding: 5px 0px;
+    /* flex: 1;  NOT WORKING */
 }
 
 input {
     padding: 2px 8px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
+    width: 100%;
 }
 
 input.error {
